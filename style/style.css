@@ -11,6 +11,7 @@ body {
     width: 100%;
     box-shadow: 0 2px 6px 0 rgba(0,0,0,.2);
     border: 0;
+    background-color: #f03f51;
 }
 .menu {
     padding: 0;
@@ -20,16 +21,49 @@ body {
 }
 .menu__listItem {
     display: inline-block;
-    padding: 10px 5%;
+    padding: 20px 5%;
 }
 .menu--link {
-    color: #000;
+    color: #fff;
     cursor: pointer;
+    position: relative;
 }
 .menu--link:hover {
-    color: #000;
+    color: #fff;
     text-decoration: none;
 }
-.active {
-    color: #f03f51;
+.menu--link.active {
+    text-decoration: none;
+    color: #fff;
+}
+.menu--link.active:before {
+    content: '\f099';
+    font-family: FontAwesome;
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    margin: 0 0 0 -5px;
+    font-size: 14px;
+    color: #fff;
+}
+.app__title {
+    font-size: 3em;
+    color: #000;
+    text-align: center;
+    font-weight: bold;
+}
+.container {
+    margin: 50px auto;
+}
+.app__description {
+    text-align: center;
+    font-size: 14px;
+}
+.reactList__img {
+    padding: 10px;
+    border: 1px solid #d9d9d9;
+}
+.reactList {
+    width: 70%;
+    margin: 40px auto;
 }
