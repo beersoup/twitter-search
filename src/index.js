@@ -19,8 +19,10 @@ const root = document.getElementById('root');
 
 const router = (
   <Router history={browserHistory}>
-  <Redirect from="/" to="/react-result" />
+      <Redirect from="/" to="/react-result" />
+
     <Route path="/" component={App}>
+        <IndexRoute component={ReactResult} />
         <Route path="/react-result" component={ReactResult}></Route>
         <Route path="/node-result" component={NodeResult}></Route>
         <Route path="/account-search" component={AccountSearch}></Route>

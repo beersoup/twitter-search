@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins');
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,600,700');
 
 body {
     width: 100%;
@@ -7,11 +7,18 @@ body {
     padding: 0;
     font-family: 'Poppins', sans-serif !important;
 }
+:focus {outline:none !important;}
+
 .header {
     width: 100%;
     box-shadow: 0 2px 6px 0 rgba(0,0,0,.2);
     border: 0;
-    background-color: #f03f51;
+    background-color: #e93614;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
 }
 .menu {
     padding: 0;
@@ -22,6 +29,7 @@ body {
 .menu__listItem {
     display: inline-block;
     padding: 20px 5%;
+    color: #fff;
 }
 .menu--link {
     color: #fff;
@@ -34,7 +42,7 @@ body {
 }
 .menu--link.active {
     text-decoration: none;
-    color: #fff;
+    color: #0fc0ae;
 }
 .menu--link.active:before {
     content: '\f099';
@@ -53,17 +61,179 @@ body {
     font-weight: bold;
 }
 .container {
-    margin: 50px auto;
+    margin: 64px auto;
+    padding-top: 50px;
 }
 .app__description {
     text-align: center;
     font-size: 14px;
 }
-.reactList__img {
-    padding: 10px;
+.app__tweetAvatar {
+    padding: 5px;
     border: 1px solid #d9d9d9;
+    margin-left: -100px;
+    vertical-align: top;
+    float: left;
+    margin-top: -5px;
+    width: 80px;
+    border-radius: 50%;
 }
-.reactList {
+.add__allTweetCard {
+    background-color: #ccc;
+    padding: 1px;
+    width: 90%;
+    margin: 0 auto;
+}
+.app__tweetCard {
+    overflow: hidden;
+    background-color: #fff;
+    margin: 10px auto;
+    padding: 10px;
+}
+.tweetContain {
     width: 70%;
-    margin: 40px auto;
+    margin: 10px auto;
+}
+
+.app__tweetName {
+    font-weight: bold;
+    font-size: 14px;
+    color: #e93614;
+}
+.app__tweetText {
+    font-size: 14px;
+}
+.app__tweetScreenName {
+    font-size: 14px;
+    color: #777;
+}
+.app__tweetScreenName:before {
+    content: '@';
+    font-size: 14px;
+    color: #777;
+}
+/*---------------------Keyframes----------------------*/
+@-moz-keyframes contentMoveDown {
+    0% {
+        transform: translate3d(0px, 0px, 50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translate3d(0px, 0px, 0px);
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes contentMoveDown {
+    0% {
+        transform: translate3d(0px, 0px, 50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translate3d(0px, 0px, 0px);
+        opacity: 1;
+    }
+}
+
+@-o-keyframes contentMoveDown {
+    0% {
+        transform: translate3d(0px, 0px, 50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translate3d(0px, 0px, 0px);
+        opacity: 1;
+    }
+}
+
+@keyframes contentMoveDown {
+    0% {
+        transform: translate3d(0px, 0px, 50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translate3d(0px, 0px, 0px);
+        opacity: 1;
+    }
+}
+@-moz-keyframes contentMoveUp {
+    0% {
+        transform: translate3d(0px, 60px, 0px);
+        opacity: 0;
+    }
+    100% {
+        transform: translate3d(0px, 0px, 0px);
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes contentMoveUp {
+    0% {
+        transform: translate3d(0px, 60px, 0px);
+        opacity: 0;
+    }
+    100% {
+        transform: translate3d(0px, 0px, 0px);
+        opacity: 1;
+    }
+}
+
+@-o-keyframes contentMoveUp {
+    0% {
+        transform: translate3d(0px, 60px, 0px);
+        opacity: 0;
+    }
+    100% {
+        transform: translate3d(0px, 0px, 0px);
+        opacity: 1;
+    }
+}
+
+@keyframes contentMoveUp {
+    0% {
+        transform: translate3d(0px, 60px, 0px);
+        opacity: 0;
+    }
+    100% {
+        transform: translate3d(0px, 0px, 0px);
+        opacity: 1;
+    }
+}
+
+.add__allTweetCard {
+    -webkit-animation: contentMoveUp 1s ease-in;
+    animation: contentMoveUp 1s ease-in;
+}
+.app__updateButton {
+    -webkit-animation: contentMoveDown 1s ease-in;
+    animation: contentMoveUp 1s ease-in;
+}
+
+/*-------------------------------------------------*/
+
+.app__updateButton {
+    width: 90%;
+    background-color: #eee;
+    margin: 0 auto 0.5rem auto;
+    text-align: center;
+    padding: 8px;
+    cursor: pointer;
+}
+.app__updateText {
+    font-size: 14px;
+    color: #000;
+}
+.app__updateButton:hover {
+    background-color: #defbe2;
+}
+.app__updateButton:hover .app__updateText {
+    color: #3d5f28;
+}
+.app__updateText:hover {
+    color: #defbe2;
+}
+.app__loading {
+    width: 100%;
+    text-align: center;
+
 }
