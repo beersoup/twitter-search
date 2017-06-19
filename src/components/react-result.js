@@ -1,12 +1,10 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import ReactList from './react-list'
 import io from 'socket.io-client'
 
 
-
-
 export default class ReactResult extends Component {
-    constructor (props) {
+    constructor(props) {
         super(props)
         this.state = {
             tweetsData: [],
@@ -18,22 +16,22 @@ export default class ReactResult extends Component {
         this.handleShowUpdateButton = this.handleShowUpdateButton.bind(this);
     }
 
-    componentDidMount () {
+    componentDidMount() {
         this.socket = io.connect('http://localhost:8080');
         this.socket.on('tweetReact', data => {
-            this.setState({ tweetsData: data.statuses })
+            this.setState({tweetsData: data.statuses})
         });
         this.socket.on('streamReact', data => {
             this.state.streamData.push(data)
-            this.setState({ streamData: this.state.streamData })
+            this.setState({streamData: this.state.streamData})
         });
-        setTimeout(this.handleShowUpdateButton, 5000)
+        this.timer = setTimeout(this.handleShowUpdateButton, 5000)
     }
 
-    componentWillUnmount () {
+    componentWillUnmount() {
         this.socket.removeAllListeners('tweetReact')
         this.socket.removeAllListeners('streamReact')
-
+        clearTimeout(this.timer)
     }
 
     handleUpdateClick() {
@@ -42,7 +40,7 @@ export default class ReactResult extends Component {
     }
 
     handleShowUpdateButton() {
-        this.setState({ showUpdateTweetButton: true })
+        this.setState({showUpdateTweetButton: true})
     }
 
     render() {
@@ -52,7 +50,7 @@ export default class ReactResult extends Component {
                 <h1 className="app__title">REACT</h1>
                 <p className="app__description">Tweets for <strong>"REACT"</strong> search query</p>
 
-                  {this.state.streamData.length > 0 && this.state.showUpdateTweetButton ?
+                {this.state.streamData.length > 0 && this.state.showUpdateTweetButton ?
                     <div className="app__updateButton" onClick={this.handleUpdateClick}>
                         <span className="app__updateText">Get {this.state.streamData.length} new results</span>
                     </div> : null}
@@ -60,11 +58,11 @@ export default class ReactResult extends Component {
                 {this.state.tweetsData.length !== 0 ?
                     <div className="add__allTweetCard">
                         {this.state.tweetsData.map((status, i) => {
-                            return <div className="app__tweetCard" key={i}><ReactList status={status} /></div>
+                            return <div className="app__tweetCard" key={i}><ReactList status={status}/></div>
                         })}
                     </div> :
                     <div className="app__loading">
-                        <img className="app__loadingImg" src="../../style/img/progress.gif" />
+                        <img className="app__loadingImg" src="../../style/img/progress.gif"/>
                     </div>}
             </div>
         );

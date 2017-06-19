@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,600,700');
 
-
-
 body {
     width: 100%;
     overflow-x: hidden;
@@ -9,43 +7,56 @@ body {
     padding: 0;
     font-family: 'Poppins', sans-serif !important;
 }
-:focus {outline:none !important;}
+
+html, .app {
+    background-color: #f1f1f1;
+}
+
+:focus {
+    outline: none !important;
+}
 
 .header {
     width: 100%;
-    box-shadow: 0 2px 6px 0 rgba(0,0,0,.2);
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, .2);
     border: 0;
     background-color: #e93614;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    z-index: 1;
+    z-index: 900;
 }
+
 .menu {
     padding: 0;
     width: 70%;
     margin: 0 auto;
     text-align: center;
 }
+
 .menu__listItem {
     display: inline-block;
     padding: 20px 5%;
     color: #fff;
 }
+
 .menu--link {
     color: #fff;
     cursor: pointer;
     position: relative;
 }
+
 .menu--link:hover {
     color: #fff;
     text-decoration: none;
 }
+
 .menu--link.active {
     text-decoration: none;
     color: #0fc0ae;
 }
+
 .menu--link.active:before {
     content: '\f099';
     font-family: FontAwesome;
@@ -56,20 +67,24 @@ body {
     font-size: 14px;
     color: #fff;
 }
+
 .app__title {
     font-size: 3em;
     color: #000;
     text-align: center;
     font-weight: bold;
 }
+
 .container {
     margin: 64px auto;
     padding-top: 50px;
 }
+
 .app__description {
     text-align: center;
     font-size: 14px;
 }
+
 .app__tweetAvatar {
     padding: 5px;
     border: 1px solid #d9d9d9;
@@ -80,18 +95,22 @@ body {
     width: 80px;
     border-radius: 50%;
 }
+
 .add__allTweetCard {
-    background-color: #ccc;
     padding: 1px;
     width: 90%;
     margin: 0 auto;
 }
+
 .app__tweetCard {
     overflow: hidden;
     background-color: #fff;
-    margin: 10px auto;
+    margin: 5px auto;
     padding: 10px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .04);
+    border: 1px solid #eee;
 }
+
 .tweetContain {
     width: 70%;
     margin: 10px auto;
@@ -102,18 +121,22 @@ body {
     font-size: 14px;
     color: #e93614;
 }
+
 .app__tweetText {
     font-size: 14px;
 }
+
 .app__tweetScreenName {
     font-size: 14px;
     color: #777;
 }
+
 .app__tweetScreenName:before {
     content: '@';
     font-size: 14px;
     color: #777;
 }
+
 /*---------------------Keyframes----------------------*/
 @-moz-keyframes contentMoveDown {
     0% {
@@ -158,6 +181,7 @@ body {
         opacity: 1;
     }
 }
+
 @-moz-keyframes contentMoveUp {
     0% {
         transform: translate3d(0px, 60px, 0px);
@@ -206,6 +230,7 @@ body {
     -webkit-animation: contentMoveUp 1s ease-in;
     animation: contentMoveUp 1s ease-in;
 }
+
 .app__updateButton {
     -webkit-animation: contentMoveDown 1s ease-in;
     animation: contentMoveUp 1s ease-in;
@@ -215,36 +240,45 @@ body {
 
 .app__updateButton {
     width: 90%;
-    background-color: #eee;
+    background-color: #ddd;
     margin: 0 auto 0.5rem auto;
     text-align: center;
     padding: 8px;
     cursor: pointer;
 }
+
 .app__updateText {
     font-size: 14px;
     color: #000;
 }
+
 .app__updateButton:hover {
-    background-color: #defbe2;
+    background-color: #ccc;
 }
+
 .app__updateButton:hover .app__updateText {
-    color: #3d5f28;
+    color: #000;
 }
+
 .app__updateText:hover {
     color: #defbe2;
 }
+
 .app__loading {
     width: 100%;
     text-align: center;
+}
 
+.app__loadingImg {
+    width: 100px;
 }
 
 /*------------------Search----------------------*/
 .accountSearch .form-group {
     width: 60%;
-    margin: 15px auto;
+    margin: 15px auto 40px auto;
 }
+
 .glyphicon-search:before {
     margin-right: 10px;
 }

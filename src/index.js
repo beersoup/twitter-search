@@ -1,7 +1,5 @@
 import React from 'react';
 import { render } from 'react-dom';
-//import { Provider } from 'react-redux';
-//import { createStore, applyMiddleware } from 'redux';
 import { Router, Route, IndexRoute, browserHistory, Redirect } from 'react-router';
 
 import App from './components/app';
@@ -9,11 +7,6 @@ import ReactResult from './components/react-result';
 import NodeResult from './components/node-result';
 import AccountSearch from './components/account-search';
 
-
-
-//import reducers from './reducers';
-
-//const createStoreWithMiddleware = applyMiddleware()(createStore);
 
 const root = document.getElementById('root');
 
