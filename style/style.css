@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,600,700');
 
+
+
 body {
     width: 100%;
     overflow-x: hidden;
@@ -236,4 +238,13 @@ body {
     width: 100%;
     text-align: center;
 
+}
+
+/*------------------Search----------------------*/
+.accountSearch .form-group {
+    width: 60%;
+    margin: 15px auto;
+}
+.glyphicon-search:before {
+    margin-right: 10px;
 }

@@ -36,16 +36,17 @@ const tweets = new twitter({
 tweets.stream('statuses/filter', { track: 'react' }, function(stream) {
     stream.on('data', function (stream) {
         io.sockets.emit('streamReact', stream);
-        console.log(stream);
+        //console.log(stream);
     });
 });
 
 tweets.stream('statuses/filter', { track: 'node' }, function(stream) {
     stream.on('data', function (stream) {
         io.sockets.emit('streamNode', stream);
-        console.log(stream);
+        //console.log(stream);
     });
 });
+
 
 io.sockets.on('connection', newConnection);
 
@@ -54,13 +55,20 @@ function newConnection(socket) {
     tweets.get('search/tweets', { q: 'react', count: 20, f: 'tweets', result_type: 'recent'}, function(error, tweet) {
         if(!error) {
             io.sockets.emit('tweetReact', tweet);
-            console.log(tweet);
+            //console.log(tweet);
         }
     });
     tweets.get('search/tweets', { q: 'node', count: 20, f: 'tweets', result_type: 'recent'}, function(error, tweet) {
         if(!error) {
             io.sockets.emit('tweetNode', tweet);
-            console.log(tweet);
+            //console.log(tweet);
+        }
+    });
+    const params = {screen_name: 'jennielenier'};
+    tweets.get('statuses/user_timeline', params, function(error, tweet) {
+        if (!error) {
+            io.sockets.emit('userSearch', tweet);
+            console.log('user_timeline', tweet);
         }
     });
 }

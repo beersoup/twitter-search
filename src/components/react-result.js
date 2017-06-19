@@ -15,6 +15,7 @@ export default class ReactResult extends Component {
             showUpdateTweetButton: false
         }
         this.handleUpdateClick = this.handleUpdateClick.bind(this);
+        this.handleShowUpdateButton = this.handleShowUpdateButton.bind(this);
     }
 
     componentDidMount () {
@@ -26,6 +27,13 @@ export default class ReactResult extends Component {
             this.state.streamData.push(data)
             this.setState({ streamData: this.state.streamData })
         });
+        setTimeout(this.handleShowUpdateButton, 5000)
+    }
+
+    componentWillUnmount () {
+        this.socket.removeAllListeners('tweetReact')
+        this.socket.removeAllListeners('streamReact')
+
     }
 
     handleUpdateClick() {
@@ -33,18 +41,18 @@ export default class ReactResult extends Component {
         this.setState({tweetsData: this.state.tweetsData, streamData: []})
     }
 
+    handleShowUpdateButton() {
+        this.setState({ showUpdateTweetButton: true })
+    }
 
     render() {
-        setTimeout(() => {
-            this.setState({ showUpdateTweetButton: true })
-        }, 5000)
 
         return (
             <div className="reactResult container">
                 <h1 className="app__title">REACT</h1>
                 <p className="app__description">Tweets for <strong>"REACT"</strong> search query</p>
 
-                {this.state.streamData.length > 0 && this.state.showUpdateTweetButton ?
+                  {this.state.streamData.length > 0 && this.state.showUpdateTweetButton ?
                     <div className="app__updateButton" onClick={this.handleUpdateClick}>
                         <span className="app__updateText">Get {this.state.streamData.length} new results</span>
                     </div> : null}
