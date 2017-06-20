@@ -24,9 +24,10 @@ export default class AccountSearch extends Component {
         this.socket.removeAllListeners('updateUserSearch')
     }
 
-    handleClickButton() {
-        if(this.state.inputValue !== "") {
+    handleClickButton(event) {
+        if(this.state.inputValue !== "" || event.keyCode === 13) {
             this.socket.emit('userSearch', this.state.inputValue)
+            console.log('KEY 13')
         }
     }
 
@@ -43,7 +44,8 @@ export default class AccountSearch extends Component {
                     <div className="input-group">
                         <input className="form-control" type="text" placeholder="Twitter Account Name"
                                onChange={this.handleChange}
-                               value={this.state.inputValue} />
+                               value={this.state.inputValue}
+                               onKeyUp={this.handleClickButton}/>
                         <span className="input-group-btn">
                             <button className="btn btn-success" type="submit" onClick={this.handleClickButton}>
                                 <span>Update Tweets</span>
