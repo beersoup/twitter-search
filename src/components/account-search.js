@@ -27,7 +27,6 @@ export default class AccountSearch extends Component {
     handleClickButton(event) {
         if(this.state.inputValue !== "" || event.keyCode === 13) {
             this.socket.emit('userSearch', this.state.inputValue)
-            console.log('KEY 13')
         }
     }
 
