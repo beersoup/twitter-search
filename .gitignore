@@ -1,6 +1,8 @@
 /node_modules
 bundle.js
 config.js
+LICENSE.MD
+/test
 npm-debug.log
 .DS_Store
 
