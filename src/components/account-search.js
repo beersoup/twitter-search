@@ -6,11 +6,11 @@ export default class AccountSearch extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            tweetsData: "",
+            tweetsData: '',
             inputValue: ''
         }
         this.handleChange = this.handleChange.bind(this);
-        this.handleClickButton = this.handleClickButton.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     componentDidMount() {
@@ -24,8 +24,8 @@ export default class AccountSearch extends Component {
         this.socket.removeAllListeners('updateUserSearch')
     }
 
-    handleClickButton(event) {
-        if(this.state.inputValue !== "" || event.keyCode === 13) {
+    handleSubmit(event) {
+        if(this.state.inputValue !== "" || event.key == 'Enter') {
             this.socket.emit('userSearch', this.state.inputValue)
         }
     }
@@ -44,9 +44,9 @@ export default class AccountSearch extends Component {
                         <input className="form-control" type="text" placeholder="Twitter Account Name"
                                onChange={this.handleChange}
                                value={this.state.inputValue}
-                               onKeyUp={this.handleClickButton}/>
+                               onKeyPress={this.handleSubmit}/>
                         <span className="input-group-btn">
-                            <button className="btn btn-success" type="submit" onClick={this.handleClickButton}>
+                            <button className="btn btn-success" type="submit" onClick={this.handleSubmit}>
                                 <span>Update Tweets</span>
                             </button>
                         </span>
