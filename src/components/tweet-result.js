@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 
 
-export default class ReactResult extends Component {
+export default class TweetResult extends Component {
 
     render() {
         const screenName = this.props.status.user.screen_name

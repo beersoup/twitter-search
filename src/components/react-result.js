@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import ReactList from './react-list'
+import TweetResult from './tweet-result'
 import io from 'socket.io-client'
 
 
@@ -58,7 +58,7 @@ export default class ReactResult extends Component {
                 {this.state.tweetsData.length !== 0 ?
                     <div className="add__allTweetCard">
                         {this.state.tweetsData.map((status, i) => {
-                            return <div className="app__tweetCard" key={i}><ReactList status={status}/></div>
+                            return <div className="app__tweetCard" key={i}><TweetResult status={status}/></div>
                         })}
                     </div> :
                     <div className="app__loading">

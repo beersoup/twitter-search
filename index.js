@@ -62,7 +62,6 @@ function newConnection(socket) {
     });
 
     socket.on('userSearch', function (value) {
-
         const params = {screen_name: value};
         tweets.get('statuses/user_timeline', params, function (error, tweet) {
             if (!error) {

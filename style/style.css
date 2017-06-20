@@ -119,7 +119,7 @@ html, .app {
 .app__tweetName {
     font-weight: bold;
     font-size: 14px;
-    color: #e93614;
+    color: #449d44;
 }
 
 .app__tweetText {
@@ -277,8 +277,4 @@ html, .app {
 .accountSearch .form-group {
     width: 60%;
     margin: 15px auto 40px auto;
-}
-
-.glyphicon-search:before {
-    margin-right: 10px;
 }

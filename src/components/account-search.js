@@ -1,12 +1,12 @@
 import React, {Component} from 'react'
-import ReactList from './react-list'
+import TweetResult from './tweet-result'
 import io from 'socket.io-client'
 
 export default class AccountSearch extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            tweetsData: [],
+            tweetsData: "",
             inputValue: ''
         }
         this.handleChange = this.handleChange.bind(this);
@@ -25,12 +25,13 @@ export default class AccountSearch extends Component {
     }
 
     handleClickButton() {
-        this.socket.emit('userSearch', this.state.inputValue)
-
+        if(this.state.inputValue !== "") {
+            this.socket.emit('userSearch', this.state.inputValue)
+        }
     }
 
     handleChange(event) {
-        this.setState({inputValue: event.target.value})
+        this.setState({inputValue: event.target.value.trim()})
     }
 
     render() {
@@ -40,8 +41,9 @@ export default class AccountSearch extends Component {
                 <p className="app__description">Please enter a Twitter account name</p>
                 <div className="form-group">
                     <div className="input-group">
-                        <input className="form-control" type="text" placeholder="Type Twitter Account Name"
-                               onChange={this.handleChange}/>
+                        <input className="form-control" type="text" placeholder="Twitter Account Name"
+                               onChange={this.handleChange}
+                               value={this.state.inputValue} />
                         <span className="input-group-btn">
                             <button className="btn btn-success" type="submit" onClick={this.handleClickButton}>
                                 <span>Update Tweets</span>
@@ -49,12 +51,15 @@ export default class AccountSearch extends Component {
                         </span>
                     </div>
                 </div>
-                {this.state.tweetsData.length > 0 ?
-                    <div className="add__allTweetCard">
-                        {this.state.tweetsData.map((status, i) => {
-                            return <div className="app__tweetCard" key={i}><ReactList status={status}/></div>
-                        })}
-                    </div> : ''}
+                <div className="add__allTweetCard">
+                {this.state.tweetsData.length > 0 && this.state.inputValue !== "" ?
+                    this.state.tweetsData.map((status, i) => {
+                        if(this.state.inputValue.toLowerCase() === status.user.screen_name.toLowerCase()) {
+                            return <div className="app__tweetCard" key={i}><TweetResult status={status}/></div>
+                        }
+                    })
+                 : ''}
+                 </div>
             </div>
 
         );
