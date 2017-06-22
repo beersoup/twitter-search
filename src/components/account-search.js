@@ -44,7 +44,8 @@ export default class AccountSearch extends Component {
                         <input className="form-control" type="text" placeholder="Twitter Account Name"
                                onChange={this.handleChange}
                                value={this.state.inputValue}
-                               onKeyPress={this.handleSubmit}/>
+                               onKeyPress={this.handleSubmit}
+                               autoFocus />
                         <span className="input-group-btn">
                             <button className="btn btn-success" type="submit" onClick={this.handleSubmit}>
                                 <span>Update Tweets</span>
