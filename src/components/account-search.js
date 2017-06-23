@@ -25,7 +25,7 @@ export default class AccountSearch extends Component {
     }
 
     handleSubmit(event) {
-        if(this.state.inputValue !== "" || event.key == 'Enter') {
+        if (this.state.inputValue !== "" || event.key == 'Enter') {
             this.socket.emit('userSearch', this.state.inputValue)
         }
     }
@@ -45,7 +45,7 @@ export default class AccountSearch extends Component {
                                onChange={this.handleChange}
                                value={this.state.inputValue}
                                onKeyPress={this.handleSubmit}
-                               autoFocus />
+                               autoFocus/>
                         <span className="input-group-btn">
                             <button className="btn btn-success" type="submit" onClick={this.handleSubmit}>
                                 <span>Update Tweets</span>
@@ -54,14 +54,14 @@ export default class AccountSearch extends Component {
                     </div>
                 </div>
                 <div className="add__allTweetCard">
-                {this.state.tweetsData.length > 0 && this.state.inputValue !== "" ?
-                    this.state.tweetsData.map((status, i) => {
-                        if(this.state.inputValue.toLowerCase() === status.user.screen_name.toLowerCase()) {
-                            return <div className="app__tweetCard" key={i}><TweetResult status={status}/></div>
-                        }
-                    })
-                 : ''}
-                 </div>
+                    {this.state.tweetsData.length > 0 && this.state.inputValue !== "" ?
+                        this.state.tweetsData.map((status, i) => {
+                            if (this.state.inputValue.toLowerCase() === status.user.screen_name.toLowerCase()) {
+                                return <div className="app__tweetCard" key={i}><TweetResult status={status}/></div>
+                            }
+                        })
+                        : ''}
+                </div>
             </div>
 
         );

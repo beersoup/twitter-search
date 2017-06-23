@@ -19,7 +19,7 @@ export default class SearchTemplate extends Component {
         this.socket = io.connect('http://localhost:8080');
         this.socket.on(this.props.socketOnTweet, data => {
             this.setState({tweetsData: data.statuses})
-            setTimeout(() => {
+            this.timer = setTimeout(() => {
                 this.socket.on(this.props.socketOnStream, data => {
                     this.state.streamData.push(data)
                     this.setState({streamData: this.state.streamData})
@@ -34,6 +34,7 @@ export default class SearchTemplate extends Component {
         for (let item of removeListenerList) {
             this.socket.removeAllListeners(item)
         }
+        clearTimeout(this.timer)
     }
 
     handleUpdateClick() {
