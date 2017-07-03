@@ -1,6 +1,7 @@
 
 ###Getting Started###
 
+[CLICK TO SEE DEMO](http://jennielenier.com/assets/images/twitter.gif)
 
 ```
     In command line
